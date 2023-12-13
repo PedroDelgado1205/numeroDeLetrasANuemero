@@ -1,7 +1,36 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    print("Ingrese un número en palabras (por ejemplo, 'cinco'): ")
+    val entrada = readLine()
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    if (entrada != null) {
+        val numero = convertirTextoANumero(entrada)
+
+        if (numero != -1) {
+            println(numero)
+        } else {
+            println("Entrada no válida")
+        }
+    } else {
+        println("Error al leer la entrada")
+    }
+}
+
+fun convertirTextoANumero(texto: String): Int {
+    val conversiones = listOf(
+        "cero",
+        "uno",
+        "dos",
+        "tres",
+        "cuatro",
+        "cinco",
+        "seis",
+        "siete",
+        "ocho",
+        "nueve",
+        "diez"
+    )
+
+    val indice = conversiones.indexOf(texto.toLowerCase())
+
+    return indice;
 }
